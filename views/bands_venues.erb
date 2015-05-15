@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 title">
+      <h1> Here are all your bands and their venues <h1>
+        <a href='/bands/add'>Add a New Band</a>
+    </div>
+  <div class="row">
+    <div class="col-md-6 bands">
+      <h2>Bands<h2>
+        <br>
+        <table>
+          <tr>
+            <th></th> <th>Delete</th>
+          </tr>
+        <% Band.all.each do |band| %>
+          <tr>
+            <td>
+              <a href='/bands/<%= band.id %>'><%= band.name %></a>
+            </td>
+            <td>
+              <a href='/bands/<%= band.id %>/delete'>
+                <span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true">
+                </span>
+              </a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+    <div class="col-md-6 venues">
+      <h2>Venues<h2>
+        <br>
+        <table>
+          <tr>
+            <th></th> <th>Delete</th>
+          </tr>
+          <% Venue.all.each do |venue| %>
+          <tr>
+            <td>
+              <a href='/venues/<%= venue.id %>'><%= venue.name %></a>
+            </td>
+            <td>
+              <a href='/venues/<%= venue.id %>/delete'>
+                <span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true">
+                </span>
+              </a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>

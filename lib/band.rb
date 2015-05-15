@@ -3,6 +3,10 @@ class Band < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   before_validation(:capitalize_name)
 
+  scope(:alphabetically, -> do
+    self.all.order(name: :desc)
+  end)
+
 private
 
   define_method(:capitalize_name) do
