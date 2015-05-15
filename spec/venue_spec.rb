@@ -9,14 +9,14 @@ describe(Venue) do
     end
   end
 
-  # describe('Validations and Callbacks') do
-  #   it('ensures band name is present and unique') do
-  #     Band.create(name: 'Warpaint')
-  #     Band.create(name: 'Warpaint')
-  #     Band.create(name: '')
-  #     expect(Band.all.length).to(eq(1))
-  #   end
-  # end
+  describe('Validations and Callbacks') do
+    it('ensures venue name is present and unique') do
+      Venue.create(name: 'Moda Center')
+      Venue.create(name: 'Moda Center')
+      Venue.create(name: '')
+      expect(Venue.all.length).to(eq(1))
+    end
+  end
   #
   # it('ensures words in band name are capitalized') do
   #   band = Band.create(name: 'tame impala')
