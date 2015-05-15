@@ -9,4 +9,13 @@ describe(Band) do
     end
   end
 
+  describe('Validations and Callbacks') do
+    it('ensures band name is present and unique') do
+      Band.create(name: 'warpaint')
+      Band.create(name: 'warpaint')
+      Band.create(name: '')
+      expect(Band.all.length).to(eq(1))
+    end
+  end
+
 end
