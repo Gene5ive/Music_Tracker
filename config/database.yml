@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: sql_ascii
+  databse: music_development
+
+test:
+  adapter: postgresql
+  encoding: sql_ascii
+  database: music_test
