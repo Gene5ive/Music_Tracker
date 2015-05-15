@@ -3,3 +3,11 @@
     <h3> <%= @band.name %> <h3>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <% @band.venues.each do |venue| %>
+    <%= venue.name %>
+    <% end %>
+  </div>
+</div>
+<a href='/bands/<%= @band.id %>/edit'>Edit Band Page</a>

@@ -1,0 +1,47 @@
+<div class='row'>
+  <div id='band_data' class='section col-lg-4'>
+    <h3>Band</h3>
+      <form action='/bands/<%=@band.id%>/edit' method='post'>
+        <input type='hidden' name='_method' value='patch'>
+        Name:
+        <br />
+        <input type='text' name='name' id='name' value='<%= @band.name %>'>
+        <br /><br />
+        Venue:
+        <br />
+        <input type="text" name="venue_name" id='venue_name' value='<%= @band.venues %>'>
+        <br /><br />
+        <button type='sumbit'>Update</button>
+      </form>
+    <br />
+    <a href='/bands/<%= @band.id %>'>View Band Page</a>
+  </div>
+
+  <div id='band_venues' class='section col-lg-4'>
+    <h3>Venues<h3>
+      <h6>Currently Assigned Venues:</h6>
+        <ul>
+          <% @band.venues.each do |venue| %>
+          <li><%= venue.name %>
+            <a href='/recipes/<%= @band.id%>/remove_venue/<%= venue.id%>'>
+              <span class="glyphicon glyphicon-remove-circle warning" aria-hidden="true"></span>
+            </a>
+          </li>
+          <% end %>
+        </ul>
+      <h6>Available Venues</h6>
+        <form action='/recipes/<%= @band.id %>/add_venue' method='post'>
+          <select name='venue_id' id='venue_id'>
+            <% Venue.all.each do |venue| %>
+            <option value='<%= venue.id %>'><%= venue.name %></option>
+            <% end %>
+          </select>
+          <button type='submit'>Add To Band</button>
+        </form>
+      <h6>Add a New Venue</h6>
+        <form action="/venues/<%= @band.id%>/venues/create" method="post">
+          <input type="text" name="name" id="name">
+          <button type="Submit" name='submit_type' value='new_venue'>Add Venue</button>
+        </form>
+  </div>
+</div>

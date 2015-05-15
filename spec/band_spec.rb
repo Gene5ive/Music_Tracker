@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe(Band) do
+  it { should have_and_belong_to_many(:venues) }
+
   describe('Associations with Venues') do
     it('adds and verifies adding a venue to a band') do
       band = Band.create(name: 'Band')

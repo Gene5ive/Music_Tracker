@@ -46,9 +46,24 @@ end
 #------------------------
 
 #UPDATE FORM
-patch('/bands/:band_id/edit') do |recipe_id|
+get('/bands/:band_id/edit') do |band_id|
   @band = Band.find(band_id)
   erb(:band_update_form)
+end
+
+#UPDATE
+patch('/bands/:band_id/edit') do |band_id|
+  update_hash = Hash/new
+  if params.has_key?('name')
+    update_hash.store(:name, params['name'])
+  end
+  if params.has_key?('venue_name')
+    update_hash.store(:venue_name, params['venue_name'])
+  end
+  if !update_hash.empty?
+    Band.find(band_id).update(update_hash)
+  end
+  redirect to("/bands/#{band_id}")
 end
 #--------------------------------
 
@@ -57,3 +72,7 @@ get('/bands/:band_id/delete') do |band_id|
   Band.find(band_id).destroy
   redirect to('/bands_venues')
 end
+
+############
+##VENUE
+#READ
