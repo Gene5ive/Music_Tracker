@@ -17,10 +17,10 @@ describe(Venue) do
       expect(Venue.all.length).to(eq(1))
     end
   end
-  #
-  # it('ensures words in band name are capitalized') do
-  #   band = Band.create(name: 'tame impala')
-  #   expect(band.name).to(eq('Tame Impala'))
-  # end
+
+  it('ensures words in band name are capitalized') do
+    venue = Venue.create(name: 'moda center')
+    expect(venue.name).to(eq('Moda Center'))
+  end
 
 end
