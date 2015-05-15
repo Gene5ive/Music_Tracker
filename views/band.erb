@@ -1,13 +1,16 @@
 <div class="row">
   <div class="col-md-12">
-    <h3> <%= @band.name %> <h3>
+    <h2> <%= @band.name %> </h2>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <% @band.venues.each do |venue| %>
-    <%= venue.name %>
-    <% end %>
+    <h3>Venues hosting '<%= @band.name %>':</h3>
+      <ul>
+      <% @band.venues.each do |venue| %>
+        <li><a href='/venues/<%= venue.id %>'><%= venue.name %></a></li>
+      <% end %>
+      </ul>
   </div>
 </div>
 <a href='/bands/<%= @band.id %>/edit'>Edit Band Page</a>

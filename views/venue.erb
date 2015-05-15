@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2> <%= @venue.name %> </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Bands visiting '<%= @venue.name %>':</h3>
+      <ul>
+      <% @venue.bands.each do |band| %>
+        <li><a href='/bands/<%= band.id %>'><%= band.name %></a></li>
+      <% end %>
+      </ul>
+  </div>
+</div>

@@ -34,7 +34,7 @@ describe('Application Testing', { :type => :feature }) do
     it('displays edit form with instantaneous results') do
       band = Band.create(name: 'Foo Fighters')
       visit("/bands/#{band.id}/edit")
-      find_field('venue_name').value
+      find_field('venue_id').value
     end
 
     #DELETE ONE
@@ -53,6 +53,21 @@ describe('Application Testing', { :type => :feature }) do
       Venue.create(name: 'rose garden')
       visit('/bands_venues')
       expect(page).to have_content('Rose Garden')
+    end
+
+    #CREATE ONE AND READ ONE
+    it('displays a single venue page') do
+      venue = Venue.create(name: 'rose quarter')
+      visit("/venues/#{venue.id}")
+      expect(page).to have_content('Rose Quarter')
+    end
+
+    #DELETE ONE
+    it('removes a venue') do
+      venue = Venue.create(name: 'crystal ballroom')
+      visit('/bands_venues')
+      find(:xpath, "//a[@href='/venues/#{venue.id}/delete']").click
+      expect(page).to_not have_content('Crystal Ballroom')
     end
   end
 
