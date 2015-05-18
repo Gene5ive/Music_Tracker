@@ -10,7 +10,7 @@ simulates an online band tracking application
 
 **<https://fathomless-bayou-4617.herokuapp.com/>**
 
-**<https://www.learnhowtoprogram.com/table-of-contents>**
+**<https://www.learnhowtoprogram.com/lessons/active-record-code-review>**
 
 ### Author(s) ###
 
